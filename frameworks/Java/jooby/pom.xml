@@ -11,7 +11,8 @@
   <name>jooby</name>
 
   <properties>
-    <jooby.version>2.9.5</jooby.version>
+<!--    <jooby.version>2.9.5</jooby.version>-->
+    <jooby.version>3.0.0.M2</jooby.version>
     <netty.version>4.1.86.Final</netty.version>
     <dsl-json.version>1.9.5</dsl-json.version>
     <postgresql.version>42.4.3</postgresql.version>
@@ -27,6 +28,7 @@
     <dependency>
       <groupId>jakarta.ws.rs</groupId>
       <artifactId>jakarta.ws.rs-api</artifactId>
+      <version>2.1.6</version>
     </dependency>
 
     <!-- jdbc -->
@@ -150,6 +152,16 @@
                   <mainClass>${application.class}</mainClass>
                 </transformer>
               </transformers>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                  </excludes>
+                </filter>
+              </filters>
             </configuration>
           </execution>
         </executions>
@@ -176,6 +188,22 @@
           <groupId>io.jooby</groupId>
           <artifactId>jooby-jetty</artifactId>
           <version>${jooby.version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>jetty-loom</id>
+      <dependencies>
+        <dependency>
+          <groupId>com.github.blquinn</groupId>
+          <artifactId>jooby-jetty-loom</artifactId>
+          <version>3.0.0.M2</version>
+        </dependency>
+        <dependency>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>jetty-server</artifactId>
+          <version>11.0.13</version>
         </dependency>
       </dependencies>
     </profile>

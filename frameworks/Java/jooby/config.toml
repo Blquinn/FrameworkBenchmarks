@@ -67,6 +67,23 @@ platform = "Jetty"
 webserver = "None"
 versus = "jetty"
 
+[jetty-loom]
+urls.plaintext = "/plaintext"
+urls.json = "/json"
+urls.db = "/db"
+urls.query = "/queries?queries="
+urls.update = "/updates?queries="
+urls.fortune = "/fortunes"
+approach = "Realistic"
+classification = "Fullstack"
+database = "Postgres"
+database_os = "Linux"
+os = "Linux"
+orm = "Raw"
+platform = "Jetty"
+webserver = "None"
+versus = "jetty"
+
 [jaxrs]
 urls.plaintext = "/plaintext"
 urls.json = "/json"
